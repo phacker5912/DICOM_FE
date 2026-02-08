@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다운로드 - DICOM Converter</title>
+    <link rel="stylesheet" href="download.css">
+    
+</head>
+<body>
+    
+
+   
+    
+    <! 확인 이미지 변환 성공 아이콘 및 파일명 표시 영역 -->
+    <div class="download-container">
+        <div class="icon-area">
+            <img src="janjf93-hook-1727484_1280.png" alt="변환 성공" class="success-img">
+        </div>
+
+      
+        <! 파일이름 표시 영역 -->
+        <div class="file-name-box">
+            파일명: <span id="result-file-name">파일없음</span>
+        </div>
+
+        <! 다운로드 버튼 -->
+        <a href="#" class="download-btn-large" id="download-link" download="converted_image.png">
+            변환된 이미지 다운로드
+        </a>
+
+        <! 다른 이미지 변환하기 링크 -->
+        <div style="margin-top: 20px;">
+            <a href="upload.html" class="retry-link-gray">다른 이미지 변환하기</a>
+        </div>
+    </div>
+
+    <! 스크립트 파일 연결 -->
+    <script src="download.js"></script>
+
+</body>
+</html>
