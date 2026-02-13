@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--모바일-->
     <title>DICOM to PNG Converter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +19,7 @@
             <input type="file" id="file-input" accept=".dicom, .zip" hidden>
             
             <div class="icon-area">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="17 8 12 3 7 8"></polyline>
                     <line x1="12" y1="3" x2="12" y2="15"></line>
@@ -35,15 +39,15 @@
     </div>
 
     <div id="loading-overlay" class="hidden">
-        <h2 style="margin-bottom: 20px; color: #555;">변환 중...</h2>
+        <h2 >변환 중...</h2>
         
         <div class="progress-container">
             <div class="progress-bar" id="progress-bar"></div>
         </div>
         
-        <p id="progress-text" style="font-weight: bold; color: #81b1ff; margin-top: 10px;">0%</p>
+        <p id="progress-text">0%</p>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
