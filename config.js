@@ -1,4 +1,4 @@
-export const BASE_URL = "http://"; // URL 입력
+export const BASE_URL = "https://moist-facete-penney.ngrok-free.dev";
 
 export const API_endpoints = {
     UPLOAD: `${BASE_URL}/api/dicom/upload`,

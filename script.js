@@ -89,7 +89,7 @@ convertBtn.addEventListener("click", () => {
       progressText.textContent = "이미지를 변환 중...";
       
       try {
-        const convertResponse = await fetch(`/api/dicom/convert/${fileId}`, {
+        const convertResponse = await fetch(API_endpoints.CONVERT(fileId), {
           method: 'POST'
         });
 
