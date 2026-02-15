@@ -2,8 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--모바일-->
-    <title>DICOM to PNG Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>DICOM to PNG Converter</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,14 +31,17 @@
             </p>
             <p class="sub-text">.dicom, .zip지원</p>
             
-            <p id="file-name" class="file-name-display"></p>
+            <div class="file-info-container" style="margin-top: 10px;">
+                <span id="file-name" class="file-name-display"></span>
+                <button id="delete-btn" style="display: none; background: none; border: none; color: #81b1ff; font-weight: bold; cursor: pointer; margin-left: 8px;">✕</button>
+            </div>
         </div>
 
         <button id="convert-btn" class="convert-btn" disabled>변환</button>
     </div>
 
     <div id="loading-overlay" class="hidden">
-        <h2 >변환 중...</h2>
+        <h2>변환 중...</h2>
         
         <div class="progress-container">
             <div class="progress-bar" id="progress-bar"></div>

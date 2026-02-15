@@ -8,6 +8,7 @@ const convertBtn = document.getElementById("convert-btn"); //변환 버튼
 const loadingOverlay = document.getElementById("loading-overlay");
 const progressBar = document.getElementById("progress-bar"); //로딩바
 const progressText = document.getElementById("progress-text"); //진행률(퍼센트)
+const deleteBtn = document.getElementById("delete-btn"); //삭제 버튼
 
 let file;
 
@@ -42,8 +43,19 @@ function showFile() {
     fileNameDisplay.textContent = `선택된 파일: ${file.name}`; // 파일명
     convertBtn.disabled = false; // 변환버튼 활성화
     convertBtn.style.backgroundColor = "#4285f4";
+    deleteBtn.style.display = "inline-block"; // 삭제 버튼 노출
   }
 }
+
+// 파일 삭제 기능
+deleteBtn.onclick = () => {
+  file = null;
+  fileInput.value = ""; 
+  fileNameDisplay.textContent = ""; 
+  deleteBtn.style.display = "none"; 
+  convertBtn.disabled = true; 
+  convertBtn.style.backgroundColor = "#ccc"; 
+};
 
 // 변환 클릭 (진행률 표시)
 convertBtn.addEventListener("click", () => {
@@ -69,16 +81,33 @@ convertBtn.addEventListener("click", () => {
   };
 
   // 통신 완료 시
-  xhr.onload = () => {
+  xhr.onload = async () => {
     if (xhr.status === 200) {
       const response = JSON.parse(xhr.responseText);
       const fileId = response.id;
-      setTimeout(() => {
-        window.location.href = `download.html?id=${fileId}`; 
-      }, 500); 
+
+      progressText.textContent = "이미지를 변환 중...";
+      
+      try {
+        const convertResponse = await fetch(`/api/dicom/convert/${fileId}`, {
+          method: 'POST'
+        });
+
+        if (convertResponse.ok) {
+          setTimeout(() => {
+            window.location.href = `download.html?id=${fileId}`; 
+          }, 500); 
+        } else {
+          alert("변환 작업 실패");
+          loadingOverlay.classList.add("hidden");
+        }
+      } catch (error) {
+        alert("서버와 통신 중 오류 발생");
+        loadingOverlay.classList.add("hidden");
+      }
       
     } else {
-      alert("서버 연결에 실패했습니다.");
+      alert("서버 연결 실패");
       loadingOverlay.classList.add("hidden");
     }
   };
