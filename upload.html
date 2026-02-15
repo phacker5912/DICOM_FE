@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--모바일-->
+    <title>DICOM to PNG Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>DICOM to PNG Converter</h1>
+
+        <div class="upload-box" id="drop-area">
+            <input type="file" id="file-input" accept=".dicom, .zip" hidden>
+            
+            <div class="icon-area">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+            </div>
+
+            <p class="main-text">
+                <button id="browse-btn">파일선택</button> 
+                <span>또는 파일을 여기로 드래그 하시오</span>
+            </p>
+            <p class="sub-text">.dicom, .zip지원</p>
+            
+            <p id="file-name" class="file-name-display"></p>
+        </div>
+
+        <button id="convert-btn" class="convert-btn" disabled>변환</button>
+    </div>
+
+    <div id="loading-overlay" class="hidden">
+        <h2 style="margin-bottom: 20px; color: #555;">변환 중...</h2>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        
+        <p id="progress-text" style="font-weight: bold; color: #81b1ff; margin-top: 10px;">0%</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
