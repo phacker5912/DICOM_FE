@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="history.css">
+    
 </head>
 <body>
 
@@ -36,8 +38,10 @@
                 <button id="delete-btn" style="display: none; background: none; border: none; color: #81b1ff; font-weight: bold; cursor: pointer; margin-left: 8px;">✕</button>
             </div>
         </div>
-
-        <button id="convert-btn" class="convert-btn" disabled>변환</button>
+        <div class="button-group">
+            <button id="convert-btn" class="convert-btn" disabled>변환</button>
+            <button id="history-btn" class="history-btn" onclick="location.href='history.html'">내역 조회</button>
+        </div>
     </div>
 
     <div id="loading-overlay" class="hidden">
